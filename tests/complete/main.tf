@@ -47,7 +47,7 @@ locals {
   )
 
   argocd_apps = {
-    addons = file("${path.module}/bootstrap/addons.yaml")
+    addons    = file("${path.module}/bootstrap/addons.yaml")
     workloads = file("${path.module}/bootstrap/workloads.yaml")
   }
 

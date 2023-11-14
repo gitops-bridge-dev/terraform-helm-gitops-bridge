@@ -36,3 +36,4 @@ repos:
         args:
           - --args=--config-file=__GIT_WORKING_DIR__/.tfsec.yaml
           - --args=--concise-output
+      - id: terraform_checkov

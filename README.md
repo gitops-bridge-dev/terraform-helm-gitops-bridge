@@ -47,7 +47,7 @@ locals {
 # GitOps Bridge: Bootstrap
 ################################################################################
 module "gitops_bridge_bootstrap" {
-  source  = "gitops-bridge-dev/gitops-bridge/helm"
+  source = "gitops-bridge-dev/gitops-bridge/helm"
 
   cluster = {
     cluster_name = local.name

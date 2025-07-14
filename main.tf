@@ -70,6 +70,14 @@ resource "helm_release" "argocd" {
     }
   }
 
+  lifecycle {
+    ignore_changes = [
+      namespace,
+      values,
+      version
+    ]
+  }
+
 }
 
 

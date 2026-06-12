@@ -41,35 +41,9 @@ resource "helm_release" "argocd" {
   replace                    = try(var.argocd.replace, null)
   lint                       = try(var.argocd.lint, null)
 
-  dynamic "postrender" {
-    for_each = length(try(var.argocd.postrender, {})) > 0 ? [var.argocd.postrender] : []
-
-    content {
-      binary_path = postrender.value.binary_path
-      args        = try(postrender.value.args, null)
-    }
-  }
-
-  dynamic "set" {
-    for_each = try(var.argocd.set, [])
-
-    content {
-      name  = set.value.name
-      value = set.value.value
-      type  = try(set.value.type, null)
-    }
-  }
-
-  dynamic "set_sensitive" {
-    for_each = try(var.argocd.set_sensitive, [])
-
-    content {
-      name  = set_sensitive.value.name
-      value = set_sensitive.value.value
-      type  = try(set_sensitive.value.type, null)
-    }
-  }
-
+  postrender    = try(var.argocd.postrender, null)
+  set           = try(var.argocd.set, null)
+  set_sensitive = try(var.argocd.set_sensitive, null)
 }
 
 
